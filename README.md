@@ -50,7 +50,17 @@ This section should provide examples or instructions on how to use the project. 
 2. connect to the clutser using mongodb compass, a GUI  for the database
 3. Use spring initialzer to make a zip spring boot application
 4. Open the project in an IDE
-5. Configure the database in src/main/resources/application.properties
+5. Configure the database in src/main/resources/application.properties to connect to the mongodb cluster
+6. Make a .env file to store sensitive properties for the database, so  that the information is not available to the world
+7. Spring does not support reading .env files out of the box, so we need to install a maven dependnecy
+8. spring-dotenv by paulschwarz is added to the pom.xml file as a new dependency
+9. Now go bck  to application.properties file and replace the hardcoded database name and uri components with ${MONGO_THING}
+10. If Main runs, that means the .env file was read successfully
+11. Now we need to create two classes for two entities: movies and reviews, add annotations and such
+12. Create a java class called MovieController, our first RestAPI controller
+13. Check that the HTTP request returns 200 by inputting the command "curl -i http://localhost:8080/api/v1/movies" into cmd
+14. Create a service class and a repository class to  use the Movie class model and pull data from the database
+15. Make Repository an interface because repositories are of type interface
 
 ### Contributing
 
@@ -67,3 +77,4 @@ Here you can provide information on how to contact you or the project team. This
 ### Acknowledgements
 
 Here you can give credit to any individuals or organizations that have contributed to the project or provided support.
+https://www.youtube.com/watch?v=5PdEmeopJVQ&ab_channel=freeCodeCamp.org
