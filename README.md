@@ -61,6 +61,13 @@ This section should provide examples or instructions on how to use the project. 
 13. Check that the HTTP request returns 200 by inputting the command "curl -i http://localhost:8080/api/v1/movies" into cmd
 14. Create a service class and a repository class to  use the Movie class model and pull data from the database
 15. Make Repository an interface because repositories are of type interface
+16. In RestAPI there are multiple layers
+17. The API layer, which is our MovieController, concerns itself about the task of getting a request from the user and returning a response
+18. The MovieController class uses the MovieService class by calling allMovies() from MovieService which returns the list of all the movies and a HTTPStatus of OK (200)
+19. MovieController does not actually know what happens in the MovieService class, separation of concerns
+20. The MovieService is where the business logic goes, uses the MovieRepository class and  talks to the database and gets the list of the movies then returns to the API layer, the Movie Controller class
+21. The MovieRepository class is the Data Access Layer (DAL) of our API that does the ctual job of talking to the database and bringing back the data
+22. Use Postman to test the API
 
 ### Contributing
 
